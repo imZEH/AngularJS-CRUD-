@@ -37,6 +37,10 @@ npm start
 
 Now browse to the app at `http://localhost:8000/app`.
 
+## Testing
+
+There are two kinds of tests in the Assassin's CRUD application: Unit tests and End to End tests.
+
 ## Contact
 
 For more information on Assassin's CRUD please email me at ngr_24@ymail.com
