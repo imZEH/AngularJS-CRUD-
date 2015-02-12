@@ -1,4 +1,4 @@
-# Assassin's CRUD — the cRUD for AngularJS apps
+# Assassin's CRUD — the CRUD for AngularJS apps
 
 This application is a simple CRUD(Create,Read,Update,Delete) Program.
 
