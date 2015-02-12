@@ -1,9 +1,19 @@
 'use strict';
 
-/* Services */
+var ProductFactory = function($http, Phones){
+	var ProductFactory = {};
+	ProductFactory.phones = [];
 
+	ProductFactory.getPhones = function (){
+        ProductFactory.phones = Phones.phones
+		return ProductFactory.phones;
+	};
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+	ProductFactory.addphones = function (data){
+		ProductFactory.phones.push(data);
+	}
+
+	return ProductFactory;
+};
+
+Application.Services.factory('ProductFactory',['$http','Phones',ProductFactory]);

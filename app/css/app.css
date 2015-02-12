@@ -21,7 +21,7 @@ a, a:hover {text-decoration: none; -webkit-transition: all .3s ease-in-out;}
 
 .nova {font-family: Nova; }
 .akkurat {font-family: Akkurat;}
-.baron {font-family: Baron;}
+.baron {font-family: fantasy;}
 
 .black {background-image: url(../img/blur.jpg)!important; background-size: 100%;}
 .black-2 {background-image: url(../img/blur-sm.jpg)!important; background-size: 100%;}
@@ -62,8 +62,10 @@ a, a:hover {text-decoration: none; -webkit-transition: all .3s ease-in-out;}
 .box-container:hover {background:#29e6b3; color: #fff; border:solid #29e6b3 1px;}
 .box-container:hover a {color:#fff;}
 
-.product-title {font-size:1.8em; text-decoration: none; line-height: 80%}
-.product-price {font-size:4em; position: relative; top:-10px;}
+.product-title1 {font-size:1.8em; text-decoration: none; line-height: 100%; float: right; margin-top: 72px; padding-left: 81px; width: 200px} /* float: right; margin-top: 72px; padding-left: 81px; width: 200px*/
+.product-price1 {font-size:4em; position: relative; top:-10px; margin-left: 13px; width: 150px;} /*float: right;*/
+.product-title {font-size:1.8em; text-decoration: none; line-height: 80%;} /* float: right; margin-top: 72px; padding-left: 81px; width: 200px*/
+.product-price {font-size:4em; position: relative; top:-10px; } /*float: right;*/
 .product-price:before {content: '$'; font-size: 0.4em; position: relative; top:-23px; right:-1px;}
 .product-description {font-size:1.1em; text-decoration: none; line-height: 180%;}
 

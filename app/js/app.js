@@ -1,23 +1,29 @@
-'use strict';
+ 'use strict' 
 
+var Application = Application || {};
 
-// Declare app level module which depends on filters, and services
-var crud = angular.module('myApp', [
-  'ui.bootstrap',
-  'ngAnimate',  
-  'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
-])
+Application.Controllers = angular.module('applicaton.controllers',[]);
+Application.Services = angular.module('applicaton.services',[]);
+Application.Values = angular.module('applicaton.values',[]);
+// Application.Constant = angular.module('applicaton.Constant',[]);
 
-crud.config(function($routeProvider) {
-  $routeProvider
-  	.when('/home', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'})
-  	.when('/home/:phoneId', {templateUrl: 'partials/item-detail.html', controller: 'detailCtrl'})
-  	.when('/about', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'})
-  	.otherwise({redirectTo: '/home'});
-});
+angular.module('applicaton',['ngRoute','applicaton.controllers','applicaton.services','applicaton.values'])
 
-
+  .config(['$routeProvider', function($routeProvider){
+    $routeProvider
+      .when('/home', {
+        templateUrl: 'partials/partial1.html',
+        controller: 'DisCtrl'
+      })
+      .when('/Addphone',{
+        templateUrl: 'partials/partial1.html',
+        controller: 'DisCtrl'
+      })
+      .when('/Editphone/:phonename',{
+        templateUrl: 'partials/partial1.html',
+        controller: 'DisCtrl'
+      })
+      .otherwise({
+        redirectTo: '/home'
+      });
+  }]);

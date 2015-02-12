@@ -1,22 +1,40 @@
 'use strict';
 
-/* Controllers */
+var DisCtrl = function($scope,$routeParams,$location,ProductFactory, Developer){
+  $scope.phones = ProductFactory.getPhones() || [];
+  $scope.newphone = {};
+  var pid=2;
+  var i=0;
+  $scope.layout = 'grid';
+  $scope.clear = function(){
+    $scope.newphone = {};
+  }
+  // console.log(Developer.name);
+  $scope.addphone = function() {
+    if($scope.newphone.id == null){
+       $scope.newphone.id = pid++;
+       ProductFactory.addphones($scope.newphone);
+       $location.path('/home');
+       // $scope.layout = 'list';
+       
+    }else{
+      for(i in $scope.phones) {
+            if($scope.phones[i].id == $scope.newphone.id) {
+            $scope.phones[i] = $scope.newphone;
+            }
+        }
+    }
+   
+  };
 
-var crud = angular.module('myApp.controllers', []);
+  $scope.edit = function(id) {
+    $scope.newphone = $scope.phones[id];
+  };
 
-crud.controller('MyCtrl1', function($scope, $http) {
-    $http.get('phones/phones.json').success(function(data) {
-    $scope.phones = data;
-  });
-    
-    $scope.orderProp = 'age';
-    $scope.layout = 'grid';
-})
+  $scope.delete = function(index) {
+    $scope.phones.splice(index,1);
+  }
 
-crud.controller('MyCtrl2', ['$scope', function($scope) {
+};
 
-}])
-
-crud.controller('detailCtrl', function($scope, $routeParams) {
-    $scope.phoneId = $routeParams.phoneId;
-})
+Application.Controllers.controller('DisCtrl',['$scope','$routeParams','$location','ProductFactory',DisCtrl]);

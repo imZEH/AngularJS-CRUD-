@@ -13,7 +13,6 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="well">
         <form role="form">
@@ -44,7 +43,7 @@
                 </div>
             </div>
             <div class="col-md-1 col-md-offset-8">
-               <a class="btn btn-danger btn-lg btn-2" role="button"><i class="glyphicon glyphicon-plus"></i></a>
+               <a data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-danger btn-lg btn-2" role="button"><i ng-click="clear()" class="glyphicon glyphicon-plus"></i></a>
             </div>
           </div>
         
@@ -59,9 +58,13 @@
                     <div class="col-md-5">
                         <a href="#/home/{{phone.id}}" class="thumb"><img class="product-img" ng-src="{{phone.imageUrl}}"></a>
                     </div>
-                    <div class="col-md-7">
-                        <p class="baron product-title">{{phone.name}}</p>
-                        <p class="akkurat product-price">{{phone.price}}</p>
+                    <div class="col-md-5">
+                        <p class="baron product-title1">{{phone.name}}</p>
+                        <p class="akkurat product-price1">$ {{phone.price}}</p>
+                    </div>
+                    <div class="col-md-1">
+                      <a href=""><i ng-click="delete($index)" class="btn btn-4 glyphicon glyphicon-remove"></i></a>
+                      <a href="" data-toggle="modal" data-target=".bs-example-modal-lg"><i ng-click="edit($index)" class="btn btn-4 glyphicon glyphicon-pencil"></i></a>
                     </div>
                 </div>
             </div>
@@ -85,8 +88,8 @@
                         <p class="akkurat product-description" ng-repeat="snippet in phone.snippet">{{snippet}}</p>
                     </div>
                     <div class="col-md-1 col-md-offset-2">
-                        <p><a class="btn btn-danger btn-lg btn-4" role="button"><i class="glyphicon glyphicon-remove"></i></a></p>
-                        <p><a class="btn btn-danger btn-lg btn-4" role="button"><i class="glyphicon glyphicon-pencil"></i></a></p>
+                        <p><a class="btn btn-danger btn-lg btn-4" role="button"><i ng-click="delete($index)" class="glyphicon glyphicon-remove"></i></a></p>
+                        <p><a data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-danger btn-lg btn-4" role="button"><i ng-click="edit($index)" class="glyphicon glyphicon-pencil"></i></a></p>
                     </div>
                 </div>
             </div>
@@ -95,5 +98,42 @@
 
           </div>
       </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Phone Modal</h4>
+            </div>
+                <div class="modal-body">
+                    <form role="form" name="phone">
+                            
+                            <div class="form-group">
+                                <label for="phonename">Phone Name</label>
+                                <input ng-model="newphone.name" type="text" class="form-control" id="phonename" placeholder="Enter Phone Name" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input ng-model="newphone.price" type="text" class="form-control" id="price" placeholder="0.00"  required>  
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Desciption</label>
+                                <textarea ng-model="newphone.snippet" class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageurl">Image Url</label>
+                                <input ng-model="newphone.imageUrl" type="text" class="form-control" id="imageurl" placeholder="IMAGE.JPG"> 
+                            </div>
+                            <input type="hidden" ng-model="newphone.id">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button ng-disabled="phone.$error.required" ng-click="addphone()" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                            </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
