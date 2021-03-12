@@ -41,6 +41,3 @@ Now browse to the app at `http://localhost:8000/app`.
 
 There are two kinds of tests in the Assassin's CRUD application: Unit tests and End to End tests.
 
-## Contact
-
-For more information on Assassin's CRUD please email me at pi.neilr23@gmail.com
